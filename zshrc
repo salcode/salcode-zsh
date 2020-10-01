@@ -36,6 +36,8 @@ setopt prompt_subst
 add-zsh-hook precmd vcs_info
 # Limit vcs_info to ONLY git (e.g. not svn)
 zstyle ':vcs_info:*' enable git
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
 # Set vcs_info Git formats: the default output format
 # Set vcs_info Git actionformats: the output format used during an action (e.g
 #     during a merge, rebase, etc.)
