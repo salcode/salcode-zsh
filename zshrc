@@ -38,6 +38,10 @@ add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:*' enable git
 # Enable checking for (un)staged changes, enabling use of %u and %c
 zstyle ':vcs_info:*' check-for-changes true
+# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+
 # Set vcs_info Git formats: the default output format
 # Set vcs_info Git actionformats: the output format used during an action (e.g
 #     during a merge, rebase, etc.)
