@@ -49,8 +49,10 @@ zstyle ':vcs_info:*' stagedstr ' +'
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Configuration-1
 # %b The current branch name
 # %a The current action (e.g. merge, rebase, etc.)
-zstyle ':vcs_info:git:*' formats       '(%b)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
+# %u Display the unstagedstr string if there are unstaged changes
+# %c Display the stagedstr string if there are staged changes
+zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # Set Prompt to
 # - display final 2 trailing directory names
@@ -60,5 +62,7 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
 # e.g. ~/mydir$
 # e.g. mydir/my-deeper/$
 # e.g. my-deeper/the-deepest (feature/make-better-branch) $
+# e.g. my-deeper/the-deepest (feature/make-better-branch *) $
+# e.g. my-deeper/the-deepest (feature/make-better-branch +) $
 # e.g. my-deeper/the-deepest (feature/make-better-branch|rebase) $
 PROMPT='%2~ ${vcs_info_msg_0_}$ '
