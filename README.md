@@ -1,6 +1,12 @@
 # salcode-zsh
 My zsh configuration and notes.
 
+## Aliases
+
+### General
+
+- `sourcez` for `source ~/.zshrc`
+
 ## Setup
 
 Clone the directory in your home directory.

@@ -24,3 +24,6 @@ alias gl="git lg || git log --oneline --graph"
 alias go="git checkout"
 alias gs="git status"
 alias gsno="git show --name-only"
+
+# Add alias to source zsh configuration.
+alias sourcez="source ~/.zshrc"
