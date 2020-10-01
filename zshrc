@@ -34,6 +34,8 @@ autoload -Uz vcs_info
 setopt prompt_subst
 # Run vcs_info just before a prompt is displayed (precmd).
 add-zsh-hook precmd vcs_info
+# Limit vcs_info to ONLY git (e.g. not svn)
+zstyle ':vcs_info:*' enable git
 
 # Set Prompt to
 # - display final 2 trailing directory names
