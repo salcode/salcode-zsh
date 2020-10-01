@@ -36,13 +36,23 @@ setopt prompt_subst
 add-zsh-hook precmd vcs_info
 # Limit vcs_info to ONLY git (e.g. not svn)
 zstyle ':vcs_info:*' enable git
+# Set vcs_info Git formats: the default output format
+# Set vcs_info Git actionformats: the output format used during an action (e.g
+#     during a merge, rebase, etc.)
+# Substitution values are avaiable on
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Configuration-1
+# %b The current branch name
+# %a The current action (e.g. merge, rebase, etc.)
+zstyle ':vcs_info:git:*' formats       '(%b)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
 
 # Set Prompt to
 # - display final 2 trailing directory names
 # - Use '~' instead of '/Users/myuser' when possible
-# - The current VCS branch name, e.g. Git (when present)
+# - The current Git branch name (and Git action if applicable)
 # Followed by a trailing $
 # e.g. ~/mydir$
 # e.g. mydir/my-deeper/$
-# e.g. my-deeper/the-deepest   (git)-[feature/make-better-branch]- $
-PROMPT='%2~ ${vcs_info_msg_0_} $ '
+# e.g. my-deeper/the-deepest (feature/make-better-branch) $
+# e.g. my-deeper/the-deepest (feature/make-better-branch|rebase) $
+PROMPT='%2~ ${vcs_info_msg_0_}$ '
