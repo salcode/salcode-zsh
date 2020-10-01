@@ -27,3 +27,12 @@ alias gsno="git show --name-only"
 
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"
+
+# Set Prompt to
+# - display final 2 trailing directory names
+# - Use '~' instead of '/Users/myuser' when possible
+# Followed by a trailing $
+# e.g. ~/mydir$
+# e.g. mydir/my-deeper/$
+# e.g. my-deeper/the-deepest$
+PROMPT='%2~$ '
