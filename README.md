@@ -20,3 +20,11 @@ Symlink out `zshrc` to `~/.zshrc`
 ```
 ln -sf ~/salcode-zsh/zshrc ~/.zshrc
 ```
+
+### Add fzf
+
+Install fzf by running
+
+```
+brew install fzf && $(brew --prefix)/opt/fzf/install --all
+```
