@@ -67,4 +67,5 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 # e.g. my-deeper/the-deepest (feature/make-better-branch|rebase) $
 PROMPT='%F{69}%2~%f %F{1}${vcs_info_msg_0_}%f$ '
 
+# Enable fzf **<tab> completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
