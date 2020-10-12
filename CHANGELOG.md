@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased]
+
+- Add fzf completion for `go **<tab>`
+
 ## [1.0.0] - 2020-10-11
 
 - Add nvm initialization

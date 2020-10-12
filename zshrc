@@ -69,3 +69,10 @@ PROMPT='%F{69}%2~%f %F{1}${vcs_info_msg_0_}%f$ '
 
 # Enable fzf **<tab> completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Customize fzf **<tab> completion for 'go' (git alias) to list branches.
+_fzf_complete_go() {
+	_fzf_complete --reverse --multi -- "$@" < <(
+		git branch --format='%(refname:short)'
+	)
+}
