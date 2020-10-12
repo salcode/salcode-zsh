@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 - Add fzf completion for `go **<tab>`
+- Add fzf completion for `git checkout **<tab>`
+- Add fzf completion for `git switch **<tab>`
 
 ## [1.0.0] - 2020-10-11
 
