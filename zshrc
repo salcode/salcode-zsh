@@ -9,6 +9,15 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 # Load zplug
 source $ZPLUG_HOME/init.zsh
 
+# Parent directory aliases
+alias ..="cd .."
+alias ..2="cd ../.."
+alias ..3="cd ../../.."
+alias ..4="cd ../../../.."
+alias ..5="cd ../../../../.."
+alias ..6="cd ../../../../../.."
+alias ..-="cd ../;cd -"
+
 # Git aliases
 alias ga="git add"
 alias gb="git branch"
