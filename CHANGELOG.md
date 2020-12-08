@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.1.0] - 2020-12-07
 
 - Add fzf completion for `go **<tab>`
 - Add fzf completion for `git checkout **<tab>`
