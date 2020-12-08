@@ -37,6 +37,8 @@ alias gsno="git show --name-only"
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"
 
+alias pu="./vendor/bin/phpunit"
+
 # Autoload zsh vcs_info function (-U autoload w/o substition, -z use zsh style)
 autoload -Uz vcs_info
 # Enable substitution in prompt.

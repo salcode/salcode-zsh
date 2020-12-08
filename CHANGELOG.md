@@ -6,6 +6,7 @@
 - Add fzf completion for `git checkout **<tab>`
 - Add fzf completion for `git switch **<tab>`
 - Add parent directory aliases (e.g. `..3` for `cd ../../..`)
+- Add `pu` alias for `./vendor/bin/phpunit`
 
 ## [1.0.0] - 2020-10-11
 
