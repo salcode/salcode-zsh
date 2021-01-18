@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased]
+
+- Add git alias `gcanv` (for `git commit --amend --no-verify`)
+
 ## [1.1.1] - 2021-08-12
 
 - Fix alias `gl` to `git lg` with fallback
