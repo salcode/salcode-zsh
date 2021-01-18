@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [Unreleased]
+
+- Add git alias `gcanv` (for `git commit --amend --no-verify`)
+
 ## [1.1.0] - 2020-12-07
 
 - Add fzf completion for `go **<tab>`
