@@ -5,6 +5,7 @@
 - Remove fallback for `gl` (previously, if `git lg` was not defined `git log --oneline --graph` was used - this is now removed)
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
 - Add git alias `gbsc` (for `git branch --show-current`)
+- Add alias `vi` to `nvim`
 
 ## [1.1.0] - 2020-12-07
 
