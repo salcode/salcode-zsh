@@ -28,7 +28,6 @@ alias gcanv="git commit --amend --no-verify"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gdno="git diff --name-only"
-# Use custom 'git lg' if it exists, otherwise use default git log.
 # See https://salferrarello.com/improve-git-log/
 alias gl="git lg"
 alias go="git checkout"
