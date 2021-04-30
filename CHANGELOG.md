@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
+- Add git alias `gbsc` (for `git branch --show-current`)
 
 ## [1.1.1] - 2021-08-12
 
