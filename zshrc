@@ -21,6 +21,7 @@ alias ..-="cd ../;cd -"
 # Git aliases
 alias ga="git add"
 alias gb="git branch"
+alias gbsc="git branch --show-current"
 alias gc="git commit"
 alias gca="git commit --amend"
 alias gcnv="git commit --no-verify"
