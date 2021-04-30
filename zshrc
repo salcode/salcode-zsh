@@ -18,6 +18,8 @@ alias ..5="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias ..-="cd ../;cd -"
 
+alias vi="nvim"
+
 # Git aliases
 alias ga="git add"
 alias gb="git branch"
