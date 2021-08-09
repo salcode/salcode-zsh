@@ -31,11 +31,14 @@ alias gcanv="git commit --amend --no-verify"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gdno="git diff --name-only"
-# See https://salferrarello.com/improve-git-log/
-alias gl="git lg"
 alias go="git checkout"
 alias gs="git status"
 alias gsno="git show --name-only"
+
+# See https://salferrarello.com/improve-git-log/
+function gl() {
+	git lg "$@" || git log --oneline "$@"
+}
 
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"

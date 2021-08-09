@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- Remove fallback for `gl` (previously, if `git lg` was not defined `git log --oneline --graph` was used - this is now removed)
+- Modify fallback for `gl` (previously, we could not provide a specific branch (e.g. `gl develop` did NOT work))
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
 - Add git alias `gbsc` (for `git branch --show-current`)
 - Add alias `vi` to `nvim`
