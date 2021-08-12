@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.1] - 2021-08-12
 
 - Fix alias `gl` to `git lg` with fallback
 
