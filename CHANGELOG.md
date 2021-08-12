@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Fix alias `gl` to `git lg` with fallback
+
 ## [1.1.0] - 2020-12-07
 
 - Add fzf completion for `go **<tab>`
