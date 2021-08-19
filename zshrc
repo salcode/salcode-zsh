@@ -111,3 +111,33 @@ _fzf_complete_git() {
         eval "zle ${fzf_default_completion:-expand-or-complete}"
 	fi
 }
+
+# Redeliver a GitHub webhook
+#
+# Finds the first webhook defined for a repo,
+# locates the most recent webhook sent that
+# "closed" a "pull_request"
+# and redelivers that webhook
+#
+# @param $1 A GitHub PR URL (e.g. https://github.com/salcode/webhook-testing-abc123/pull/2)
+#
+function ghredeliver() {
+	OWNERREPO=$(echo $1 | cut -d '/' -f 4-5)
+	PRNUM=$(echo $1 | cut -d '/' -f 7-)
+	WEBHOOKID=$(gh api /repos/$OWNERREPO/hooks --jq '.[0] | .id')
+	echo "OWNERREPO $OWNERREPO"
+	echo "WEBHOOKID $WEBHOOKID"
+
+	echo "NEXT"
+	DELIVERYID=$(
+		gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries --jq \
+'[.[]
+| select(.action == "closed")
+| select(.event == "pull_request")
+][0]
+| .id')
+	echo "DELIVERYID $DELIVERYID"
+	gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts
+
+	echo "END"
+}
