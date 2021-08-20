@@ -146,5 +146,10 @@ function ghredeliver() {
 
 	# Redeliver the last Delivery
 	echo "gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts"
-	echo "END"
+
+	echo
+	echo "Redelivered most recent delivery ($DELIVERYID) for webhook ($WEBHOOKID) on repo ($OWNERREPO) where:"
+	echo "- action: 'closed'"
+	echo "- event: 'pull_request'"
+	echo "- PR ID: $PRNUM"
 }
