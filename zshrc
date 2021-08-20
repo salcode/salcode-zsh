@@ -122,22 +122,31 @@ _fzf_complete_git() {
 # @param $1 A GitHub PR URL (e.g. https://github.com/salcode/webhook-testing-abc123/pull/2)
 #
 function ghredeliver() {
-	OWNERREPO=$(echo $1 | cut -d '/' -f 4-5)
-	PRNUM=$(echo $1 | cut -d '/' -f 7-)
+	# e.g. OWNERREPO="salcode/webhook-testing-abc123"
+	OWNERREPO=$(echo $1 | cut -d '/' -f 4-5) # e.g. salocode/webhook-testing-abc123
+	# e.g. PRNUM="2"
+	PRNUM=$(echo $1 | cut -d '/' -f 7)       # e.g. 2
+	# e.g. WEBHOOKID="313740872" (first webhook if there are more than one)
 	WEBHOOKID=$(gh api /repos/$OWNERREPO/hooks --jq '.[0] | .id')
 	echo "OWNERREPO $OWNERREPO"
 	echo "WEBHOOKID $WEBHOOKID"
+	echo "PRNUM $PRNUM"
 
 	echo "NEXT"
-	DELIVERYID=$(
-		gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries --jq \
-'[.[]
+	DELIVERYID=$(gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries --jq \
+'.[]
 | select(.action == "closed")
 | select(.event == "pull_request")
-][0]
-| .id')
-	echo "DELIVERYID $DELIVERYID"
+| .id' \
+| xargs -I % -n1 gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/% \
+| jq --slurp "[.[] | select(.request.payload.number == ${PRNUM}) | .id] | .[0]")
+# | jq --slurp "[.[] | {id: .id}]"
+# | jq --slurp ".[] | select(.request.payload.number == ${PRNUM}) | {id: .id}"
+# | jq --slurp ".[] | select(.request.payload.number == ${PRNUM}) | {id: .id}"
+# | jq --slurp '.[] | { guid: .guid, a: .request, a: .request.payload.number }'
+# | jq --slurp "length"
+# | jq --slurp ".[] | select(.request.payload.number == 2) | [.] | .[0] | .id"
+	# echo "DELIVERYID $DELIVERYID"
 	gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts
-
 	echo "END"
 }
