@@ -122,17 +122,23 @@ _fzf_complete_git() {
 # @param $1 A GitHub PR URL (e.g. https://github.com/salcode/webhook-testing-abc123/pull/2)
 #
 function ghredeliver() {
+	# Owner and Repo from Pull Request URL.
 	# e.g. OWNERREPO="salcode/webhook-testing-abc123"
-	OWNERREPO=$(echo $1 | cut -d '/' -f 4-5) # e.g. salocode/webhook-testing-abc123
-	# e.g. PRNUM="2"
-	PRNUM=$(echo $1 | cut -d '/' -f 7)       # e.g. 2
-	# e.g. WEBHOOKID="313740872" (first webhook if there are more than one)
-	WEBHOOKID=$(gh api /repos/$OWNERREPO/hooks --jq '.[0] | .id')
-	echo "OWNERREPO $OWNERREPO"
-	echo "WEBHOOKID $WEBHOOKID"
-	echo "PRNUM $PRNUM"
+	OWNERREPO=$(echo $1 | cut -d '/' -f 4-5)
 
-	echo "NEXT"
+	# Pull Request number from Pull Request URL.
+	# e.g. PRNUM="2"
+	PRNUM=$(echo $1 | cut -d '/' -f 7)
+
+	# ID of the first webhook defined for this repo.
+	# e.g. WEBHOOKID="313740872"
+	WEBHOOKID=$(gh api /repos/$OWNERREPO/hooks --jq '.[0] | .id')
+
+	# ID of the last Delivery for the given webhook with:
+	#     - action: 'closed'
+	#     - event: 'pull_request"
+	#     - pull request id matching <the Pull Request Number from the PR URL>
+	# e.g. DELIVERYID="4349086192"
 	DELIVERYID=$(gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries --jq \
 '.[]
 | select(.action == "closed")
@@ -140,13 +146,8 @@ function ghredeliver() {
 | .id' \
 | xargs -I % -n1 gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/% \
 | jq --slurp "[.[] | select(.request.payload.number == ${PRNUM}) | .id] | .[0]")
-# | jq --slurp "[.[] | {id: .id}]"
-# | jq --slurp ".[] | select(.request.payload.number == ${PRNUM}) | {id: .id}"
-# | jq --slurp ".[] | select(.request.payload.number == ${PRNUM}) | {id: .id}"
-# | jq --slurp '.[] | { guid: .guid, a: .request, a: .request.payload.number }'
-# | jq --slurp "length"
-# | jq --slurp ".[] | select(.request.payload.number == 2) | [.] | .[0] | .id"
-	# echo "DELIVERYID $DELIVERYID"
-	gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts
+
+	# Redeliver the last Delivery
+	echo "gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts"
 	echo "END"
 }
