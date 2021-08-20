@@ -140,12 +140,9 @@ function ghredeliver() {
 	#     - pull request id matching <the Pull Request Number from the PR URL>
 	# e.g. DELIVERYID="4349086192"
 	DELIVERYID=$(gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries --jq \
-'.[]
-| select(.action == "closed")
-| select(.event == "pull_request")
-| .id' \
-| xargs -I % -n1 gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/% \
-| jq --slurp "[.[] | select(.request.payload.number == ${PRNUM}) | .id] | .[0]")
+			'.[] | select(.action == "closed") | select(.event == "pull_request") | .id' \
+		| xargs -I % -n1 gh api /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/% \
+		| jq --slurp "[.[] | select(.request.payload.number == ${PRNUM}) | .id] | .[0]")
 
 	# Redeliver the last Delivery
 	echo "gh api --method POST /repos/$OWNERREPO/hooks/$WEBHOOKID/deliveries/$DELIVERYID/attempts"
