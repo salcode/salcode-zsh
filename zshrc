@@ -6,6 +6,9 @@ export NVM_DIR="$HOME/.nvm"
 # zplug was installed with 'brew install zplug', which puts it in this location
 export ZPLUG_HOME=/usr/local/opt/zplug
 
+# Make tty value available for GPG agent.
+export GPG_TTY=$(tty)
+
 # Load zplug
 source $ZPLUG_HOME/init.zsh
 

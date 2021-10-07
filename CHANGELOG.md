@@ -5,6 +5,7 @@
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
 - Add git alias `gbsc` (for `git branch --show-current`)
 - Add alias `vi` to `nvim`
+- Add environment variable `GPG_TTY` to make tty value available for GPG agent.
 
 ## [1.1.1] - 2021-08-12
 
