@@ -6,6 +6,7 @@
 - Add git alias `gbsc` (for `git branch --show-current`)
 - Add alias `vi` to `nvim`
 - Add environment variable `GPG_TTY` to make tty value available for GPG agent.
+- Add `nvmpe` to read node version from `package.json` property `.engines.node` and run `nvm use` with the node version.
 
 ## [1.1.1] - 2021-08-12
 

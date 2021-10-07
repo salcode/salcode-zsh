@@ -52,6 +52,40 @@ function gl() {
 	git log --oneline --graph "$@"
 }
 
+# Read node version from package.json property .engines.node
+# and run "nvm use" with the node version.
+# See https://salferrarello.com/jq-nvm-set-node-version/.
+function nvmpe() {
+	if ! command -v nvm &> /dev/null
+	then
+		echo "This command requires nvm"
+		echo "See https://github.com/nvm-sh/nvm"
+		return 1
+	fi
+	if ! command -v jq &> /dev/null
+	then
+		echo "This command require jq"
+		echo "See https://stedolan.github.io/jq/"
+		return 1
+	fi
+
+	if [[ ! -r package.json ]]
+	then
+		echo 'Can not read package.json in this directory'
+		return 1
+	fi
+
+	node_ver=$(jq -r '.engines.node' package.json)
+	if [[ $node_ver -eq '' ]]
+	then
+		echo "package.json does not contain an .engines.node entry"
+		return 1
+	fi
+
+	# Set node version.
+	nvm use $node_ver
+}
+
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"
 
