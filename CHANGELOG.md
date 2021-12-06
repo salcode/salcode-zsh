@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.2.0] - 2021-12-05
 
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
 - Add git alias `gbsc` (for `git branch --show-current`)
