@@ -3,14 +3,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# zplug was installed with 'brew install zplug', which puts it in this location
-export ZPLUG_HOME=/usr/local/opt/zplug
-
 # Make tty value available for GPG agent.
 export GPG_TTY=$(tty)
-
-# Load zplug
-source $ZPLUG_HOME/init.zsh
 
 # Parent directory aliases
 alias ..="cd .."
@@ -91,8 +85,8 @@ alias sourcez="source ~/.zshrc"
 
 alias pu="./vendor/bin/phpunit"
 
-# Autoload zsh vcs_info function (-U autoload w/o substition, -z use zsh style)
-autoload -Uz vcs_info
+# Autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
+autoload -Uz add-zsh-hook vcs_info
 # Enable substitution in prompt.
 setopt prompt_subst
 # Run vcs_info just before a prompt is displayed (precmd).
