@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Remove zplug ([#31](https://github.com/salcode/salcode-zsh/issues/31))
+
 ## [1.2.0] - 2021-12-05
 
 - Add git alias `gcanv` (for `git commit --amend --no-verify`)
