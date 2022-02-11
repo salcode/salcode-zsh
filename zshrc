@@ -80,6 +80,9 @@ function nvmpe() {
 	nvm use $node_ver
 }
 
+# Remove Newline at End of File.
+alias chompeof="perl -pi -e 'chomp if eof'"
+
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"
 
