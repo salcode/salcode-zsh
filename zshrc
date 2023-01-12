@@ -146,3 +146,47 @@ _fzf_complete_git() {
         eval "zle ${fzf_default_completion:-expand-or-complete}"
 	fi
 }
+
+# Add this code to .zshrc after nvm initialization code.
+#
+# Check the current directory for a package.json file
+# If the node version is defined (at .engines.node)
+# run "nvm use" for the node version.
+#
+# If there is not a node version defined with package.json,
+# run "nvm use default"
+# Version: 20230112
+#
+# See https://salferrarello.com/automatic-switch-node-version-zsh-package-json
+autoload -U add-zsh-hook
+load-node-version-from-package-json() {
+	local package_json_path="$(pwd)/package.json";
+
+	# Check if $package_json_path file exists.
+	if [ -f "$package_json_path" ]; then
+		local node_version="$(jq -r '.engines.node | select(.!=null)' $package_json_path)"
+		if [ "" = "$node_version" ]; then
+			echo "package.json has no .engines.node version defined";
+		elif [[ $node_version == *"~"* ]] || [[ $node_version == *">"* ]] || [[ $node_version == *"^"* ]]  then
+			echo "nvm does not support special characters (^, >, ~)";
+			echo "No changes applied, please use nvm to set manually";
+			echo "package.json .engines.node is $node_version";
+			return 0;
+		else
+			echo "This directory has a package.json file with .engines.node ($node_version)";
+			nvm use $node_version;
+			# Record modification of node version.
+			export NODE_VERSION_MODIFIED=true;
+			return 0;
+		fi
+	fi
+
+	if $NODE_VERSION_MODIFIED; then
+		# Revert to default node version.
+		echo "Reverting to default node version.";
+		nvm use default;
+		export NODE_VERSION_MODIFIED=false;
+	fi
+}
+add-zsh-hook chpwd load-node-version-from-package-json
+load-node-version-from-package-json
