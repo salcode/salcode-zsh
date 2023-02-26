@@ -150,13 +150,13 @@ _fzf_complete_go() {
 # Customize fzf **<tab> completion for certain git commands to list branches.
 # Modifies completion for 'git switch' and 'git checkout.
 _fzf_complete_git() {
-    if [[ "$@" == 'git switch '* || "$@" == 'git checkout '* ]]
+	if [[ "$@" == 'git switch '* || "$@" == 'git checkout '* ]]
 	then
 		_fzf_complete --reverse --multi -- "$@" < <(
 			git branch --format='%(refname:short)'
 		)
 	else
 		# Use default fzf completion.
-        eval "zle ${fzf_default_completion:-expand-or-complete}"
+		eval "zle ${fzf_default_completion:-expand-or-complete}"
 	fi
 }
