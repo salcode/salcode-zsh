@@ -88,6 +88,12 @@ function nvmpe() {
 # Remove Newline at End of File.
 alias chompeof="perl -pi -e 'chomp if eof'"
 
+# Aliases to copy pwd and cd to clipboard
+alias pwdcp="pwd | pbcopy"
+function cdp() {
+	cd $(pbpaste)
+}
+
 # Add alias to source zsh configuration.
 alias sourcez="source ~/.zshrc"
 
