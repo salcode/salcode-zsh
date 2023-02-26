@@ -6,6 +6,7 @@
 - Add alias `chompeof` to remove the newline at the end of a given file ([#20](https://github.com/salcode/salcode-zsh/issues/20))
 - Add alias (function) `vrg` to open ripgrep results in Vim ([#36](https://github.com/salcode/salcode-zsh/issues/36))
 - Add aliases to copy pwd (`pwdcp`) and to cd to clipboard (`cdp`) ([#35](https://github.com/salcode/salcode-zsh/issues/35))
+- Add `.editorconfig` file ([#39](https://github.com/salcode/salcode-zsh/issues/39))
 
 ## [1.2.0] - 2021-12-05
 
