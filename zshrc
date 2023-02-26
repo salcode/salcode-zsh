@@ -19,7 +19,7 @@ alias vi="nvim"
 
 # Open ripgrep results in Vim
 function vrg() {
-       vi -q <(rg $@ --vimgrep);
+	vi -q <(rg $@ --vimgrep);
 }
 
 # Git aliases
