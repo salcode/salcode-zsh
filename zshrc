@@ -17,6 +17,11 @@ alias ..-="cd ../;cd -"
 
 alias vi="nvim"
 
+# Open ripgrep results in Vim
+function vrg() {
+       vi -q <(rg $@ --vimgrep);
+}
+
 # Git aliases
 alias ga="git add"
 alias gb="git branch"

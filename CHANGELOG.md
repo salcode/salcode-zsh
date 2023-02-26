@@ -4,6 +4,7 @@
 
 - Remove zplug ([#31](https://github.com/salcode/salcode-zsh/issues/31))
 - Add alias `chompeof` to remove the newline at the end of a given file ([#20](https://github.com/salcode/salcode-zsh/issues/20))
+- Add alias (function) `vrg` to open ripgrep results in Vim ([#36](https://github.com/salcode/salcode-zsh/issues/36))
 
 ## [1.2.0] - 2021-12-05
 
