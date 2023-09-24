@@ -6,6 +6,9 @@ export NVM_DIR="$HOME/.nvm"
 # Make tty value available for GPG agent.
 export GPG_TTY=$(tty)
 
+# Render tabs as 4 spaces in less.
+export LESS="-x4R"
+
 # Parent directory aliases
 alias ..="cd .."
 alias ..2="cd ../.."
