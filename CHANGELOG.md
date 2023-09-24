@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- BREAKING CHANGE: Replace `gl` function with an alias to `git lg` without a fallback.
+  See [2.0.0 Upgrade Path](https://github.com/salcode/salcode-zsh/wiki/Upgrade-Paths-for-Breaking-Releases#200)
+
 ## [1.3.0] - 2023-09-24
 
 - Remove zplug ([#31](https://github.com/salcode/salcode-zsh/issues/31))

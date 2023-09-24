@@ -40,19 +40,10 @@ alias go="git checkout"
 alias gs="git status"
 alias gsno="git show --name-only"
 
-# Use custom 'git lg' if it exists, otherwise use default git log.
-# See https://salferrarello.com/improve-git-log/
-function gl() {
-	# Run git lg (git alias) with command line arguments ($@)
-	# suppress any output on stderr (2>/dev/null)
-	# stop if exit code is zero (||)
-	git lg "$@" 2>/dev/null || \
-	# if exit code is 141 stop (git log often exits with 141)
-	[ $? -eq 141 ] || \
-	# the attempt to run git lg did not have exit code 0 nor 141
-	# fallback to using git log with arguments ($@)
-	git log --oneline --graph "$@"
-}
+# Note: if gl does not work, try running the following line and try again.
+# git config --global alias.lg "log --oneline --graph"
+# More details at https://salferrarello.com/improve-git-log/
+alias gl="git lg"
 
 # Read node version from package.json property .engines.node
 # and run "nvm use" with the node version.
