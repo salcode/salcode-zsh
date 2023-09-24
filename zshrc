@@ -6,6 +6,8 @@ export NVM_DIR="$HOME/.nvm"
 # Make tty value available for GPG agent.
 export GPG_TTY=$(tty)
 
+export LESS="-x4R"
+
 # Parent directory aliases
 alias ..="cd .."
 alias ..2="cd ../.."
@@ -15,6 +17,9 @@ alias ..5="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias ..-="cd ../;cd -"
 
+alias alldone="say --voice=Tessa 'I have completed the task'"
+alias sayresult="say --voice=Tessa 'Task complete' || say --voice=Tessa 'Failure'"
+alias taskcomplete="afplay ~/audio/task-complete.mp3"
 alias vi="nvim"
 
 # Open ripgrep results in Vim
@@ -159,4 +164,34 @@ _fzf_complete_git() {
 		# Use default fzf completion.
 		eval "zle ${fzf_default_completion:-expand-or-complete}"
 	fi
+}
+
+function npyarm() {
+	if [[ -r yarn.lock ]]
+	then
+		echo 'There is a yarn.lock file, use yarn.'
+		yarn $@
+	fi
+
+	if [[ -r package-lock.json ]]
+	then
+		echo 'There is a package-lock.json file, use npm.'
+		npm $@
+	fi
+
+	if [[ ! -r package.json ]]
+	then
+		echo 'Can not read package.json file, use yarn'
+		yarn $@
+	fi
+
+	yarn_in_engines=$(jq -r '.engines.yarn' package.json)
+	echo $yarn_in_engines
+	# if [[ $yarn_in_engines -eq 'null' ]]
+	# then
+	# 	echo 'yarn IS defined in engines'
+	# fi
+
+	echo 'The end'
+	# yarn $@
 }
