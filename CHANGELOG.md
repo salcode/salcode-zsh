@@ -7,6 +7,7 @@
 - Add alias (function) `vrg` to open ripgrep results in Vim ([#36](https://github.com/salcode/salcode-zsh/issues/36))
 - Add aliases to copy pwd (`pwdcp`) and to cd to clipboard (`cdp`) ([#35](https://github.com/salcode/salcode-zsh/issues/35))
 - Add `.editorconfig` file ([#39](https://github.com/salcode/salcode-zsh/issues/39))
+- Render `tab` character as 4 spaces, when viewing a file with the `less` command ([#34](https://github.com/salcode/salcode-zsh/issues/34))
 
 ## [1.2.0] - 2021-12-05
 
