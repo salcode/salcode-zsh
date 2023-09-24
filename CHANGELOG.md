@@ -3,7 +3,7 @@
 ## Unreleased
 
 - BREAKING CHANGE: Replace `gl` function with an alias to `git lg` without a fallback.
-  See [2.0.0 Upgrade Path](https://github.com/salcode/salcode-zsh/wiki/Upgrade-Paths-for-Breaking-Releases#200)
+  See [2.0.0 Upgrade Path](https://github.com/salcode/salcode-zsh/wiki/Upgrade-Paths-for-Breaking-Releases#200) ([#42](https://github.com/salcode/salcode-zsh/issues/42))
 
 ## [1.3.0] - 2023-09-24
 
