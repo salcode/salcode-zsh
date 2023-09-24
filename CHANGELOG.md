@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.3.0] - 2023-09-24
 
 - Remove zplug ([#31](https://github.com/salcode/salcode-zsh/issues/31))
 - Add alias `chompeof` to remove the newline at the end of a given file ([#20](https://github.com/salcode/salcode-zsh/issues/20))
