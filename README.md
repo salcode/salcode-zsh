@@ -15,10 +15,10 @@ Clone the directory in your home directory.
 git clone git@github.com:salcode/salcode-zsh.git ~/salcode-zsh.git
 ```
 
-Symlink out `zshrc` to `~/.zshrc`
+Add `source ~/salcode-zsh/zshrc` to the bottom of your `~/.zshrc` file by running the command:
 
 ```
-ln -sf ~/salcode-zsh/zshrc ~/.zshrc
+echo 'source ~/salcode-zsh/zshrc' >> ~/.zshrc
 ```
 
 ### Add fzf

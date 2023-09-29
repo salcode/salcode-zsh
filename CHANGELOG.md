@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Modify setup instructions to source `zshrc` instead of symlinking to it ([#29](https://github.com/salcode/salcode-zsh/issues/29))
+
 ## [2.0.0] - 2023-09-24
 
 - BREAKING CHANGE: Replace `gl` function with an alias to `git lg` without a fallback.
