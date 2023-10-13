@@ -81,6 +81,18 @@ function nvmpe() {
 	nvm use $node_ver
 }
 
+# jq git composer diff
+#
+# @param (string) Git branch to use when comparing
+#                 the .require section of composer.json
+#                 to the current Git branch.
+# See https://salferrarello.com/compare-composer-json-on-two-different-git-branches/
+function jqgcdiff() {
+	diff \
+	<(jq --sort-keys '.require' composer.json) \
+	<(git show "$1":composer.json | jq --sort-keys '.require')
+}
+
 # Remove Newline at End of File.
 alias chompeof="perl -pi -e 'chomp if eof'"
 
