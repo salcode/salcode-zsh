@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Modify setup instructions to source `zshrc` instead of symlinking to it ([#29](https://github.com/salcode/salcode-zsh/issues/29))
+- Add `sayresult` alias for notification of completion (or failure) of a task (e.g. `npm install && sayresult`) ([#45](https://github.com/salcode/salcode-zsh/issues/45))
 
 ## [2.0.0] - 2023-09-24
 
