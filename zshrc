@@ -81,6 +81,17 @@ function nvmpe() {
 	nvm use $node_ver
 }
 
+# Find the full package name(s) in composer.json
+# .require section and copy the name(s)
+# into the clipboard
+#
+# @param string that appears in package name(s)
+function jqcfind() {
+	jq --raw-output --arg x "$1" \
+	'.require | to_entries[] | select(.key | contains($x)) | .key' \
+	composer.json | tee >(pbcopy)
+}
+
 # jq git composer diff
 #
 # @param (string) Git branch to use when comparing
