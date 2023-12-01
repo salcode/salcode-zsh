@@ -7,6 +7,7 @@
 - Add `gd-1` alias for `git diff @{-1}` ([#44](https://github.com/salcode/salcode-zsh/issues/44))
 - Add `jqgcdiff` alias to compare the `.require` section of `composer.json` across two Git branches ([#47](https://github.com/salcode/salcode-zsh/issues/47))
 - Add `jqcfind` alias to find a full dependency name in the `.require` section of `composer.json` and copy it to the clipboard ([#48](https://github.com/salcode/salcode-zsh/issues/48))
+- Add `gccd` alias to `git clone` and `cd` into the new directory ([#53](https://github.com/salcode/salcode-zsh/issues/53))
 
 ## [2.0.0] - 2023-09-24
 

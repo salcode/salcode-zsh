@@ -26,6 +26,13 @@ function vrg() {
 	vi -q <(rg $@ --vimgrep);
 }
 
+# git clone and cd into directory, e.g.
+# gccd git@github.com:salcode/salcode-git.git
+function gccd() {
+	git clone $1;
+	cd "$(basename $1 .git)";
+}
+
 # Git aliases
 alias ga="git add"
 alias gb="git branch"
