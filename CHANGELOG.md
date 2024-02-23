@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Add `gw` and `gwc` aliases for `git switch` and `git switch --create` respectively ([#56](https://github.com/salcode/salcode-zsh/issues/56))
+
 ## [2.1.0] - 2023-12-01
 
 - Modify setup instructions to source `zshrc` instead of symlinking to it ([#29](https://github.com/salcode/salcode-zsh/issues/29))

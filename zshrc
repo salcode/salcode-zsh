@@ -48,6 +48,8 @@ alias gdno="git diff --name-only"
 alias go="git checkout"
 alias gs="git status"
 alias gsno="git show --name-only"
+alias gw="git switch"
+alias gwc="git switch --create"
 
 # Note: if gl does not work, try running the following line and try again.
 # git config --global alias.lg "log --oneline --graph"
