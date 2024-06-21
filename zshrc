@@ -101,6 +101,17 @@ function jqcfind() {
 	composer.json | tee >(pbcopy)
 }
 
+# Find the full package name(s) and version constraint(s) in composer.json
+# .require section and copy the name(s) and version contraint(s)
+# into the clipboard
+#
+# @param string that appears in package name(s)
+function jqcwithversionfind() {
+	jq --raw-output --arg x "$1" \
+	'.require | to_entries[] | select(.key | contains($x)) | "\(.key):\(.value)"' \
+	composer.json | tee >(pbcopy)
+}
+
 # jq git composer diff
 #
 # @param (string) Git branch to use when comparing
