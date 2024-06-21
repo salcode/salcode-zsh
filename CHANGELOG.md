@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add `gw` and `gwc` aliases for `git switch` and `git switch --create` respectively ([#56](https://github.com/salcode/salcode-zsh/issues/56))
+- Add `jqcwithversionfind`. This command is similar to `jqcfind` but returns the full package name _and_ the version constraint from `composer.json` ([#59](https://github.com/salcode/salcode-zsh/issues/59))
 
 ## [2.1.0] - 2023-12-01
 
