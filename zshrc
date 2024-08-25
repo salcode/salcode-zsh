@@ -153,6 +153,15 @@ zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
+# Use brew installed program completions
+# See https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+if type brew &>/dev/null
+then
+	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+	autoload -Uz compinit
+	compinit
+fi
+
 # Set Prompt to
 # - display final 2 trailing directory names
 # - Use '~' instead of '/Users/myuser' when possible
