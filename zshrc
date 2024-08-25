@@ -162,6 +162,15 @@ then
 	compinit
 fi
 
+# Use Git's tab completion (_git) installed by brew instead of zsh's default
+if type brew &>/dev/null && [ -f "$(brew --prefix)/share/zsh/site-functions/_git" ];
+then
+	_git () {
+		builtin autoload -XUz "$(brew --prefix)/share/zsh/site-functions"
+	}
+fi
+
+
 # Set Prompt to
 # - display final 2 trailing directory names
 # - Use '~' instead of '/Users/myuser' when possible
