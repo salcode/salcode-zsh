@@ -56,6 +56,56 @@ alias gwc="git switch --create"
 # More details at https://salferrarello.com/improve-git-log/
 alias gl="git lg"
 
+# Read node version from one of the following sources:
+# - .node-version file
+# - .nvmrc file
+# - the '.engines.node' key in package.json
+# and run "nvm use" with that node version.
+function snode() {
+	if ! command -v nvm &> /dev/null
+	then
+		echo "This command requires nvm"
+		echo "See https://github.com/nvm-sh/nvm"
+		return 1
+	fi
+
+	if [[ -r .node-version ]]
+	then
+		echo "Setting node version based on .node-version"
+		nvm use $(cat .node-version)
+		return 0
+	fi
+
+	if [[ -r .nvmrc ]]
+	then
+		echo "Setting node version based on .nvmrc"
+		nvm use $(cat .nvmrc)
+		return 0
+	fi
+
+	if ! command -v jq &> /dev/null
+	then
+		echo "Unable to find node version in .node-version nor .nvmrc"
+		echo "We didn't check package.json for .engines.node because jq is not installed"
+		echo "See https://stedolan.github.io/jq/"
+		return 1
+	fi
+
+	if [[ -r package.json ]]
+	then
+		node_ver=$(jq -r '.engines.node' package.json)
+		if [[ $node_ver != '' ]]
+		then
+			echo "Setting node version based on package.json .engines.node entry"
+			nvm use $node_ver
+			return 0
+		fi
+	fi
+
+	echo "Unable to find node version in .node-version, .nvmrc, nor in package.json under '.engines.node'"
+	return 1
+}
+
 # Read node version from package.json property .engines.node
 # and run "nvm use" with the node version.
 # See https://salferrarello.com/jq-nvm-set-node-version/.

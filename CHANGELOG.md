@@ -5,6 +5,10 @@
 - Add `gw` and `gwc` aliases for `git switch` and `git switch --create` respectively ([#56](https://github.com/salcode/salcode-zsh/issues/56))
 - Add brew completions to `$FPATH` environment variable to support completions for programs installed by brew ([#62](https://github.com/salcode/salcode-zsh/issues/62))
 - When the brew installed `_git` completion function is available, use that rather than the default zsh `_git` completion ([#61](https://github.com/salcode/salcode-zsh/issues/61))
+- Add `snode` function which sets the Node version based on the following sources in order of preference ([#65](https://github.com/salcode/salcode-zsh/issues/65))
+  - `.node-version` file
+  - `.nvmrc` file
+  - the `.engines.node` key in `package.json`
 
 ## [2.1.0] - 2023-12-01
 
