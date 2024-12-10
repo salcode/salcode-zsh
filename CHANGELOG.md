@@ -9,6 +9,7 @@
   - `.node-version` file
   - `.nvmrc` file
   - the `.engines.node` key in `package.json`
+- Add `syarn` function to set the version of yarn, e.g. `syarn 4` ([#67](https://github.com/salcode/salcode-zsh/issues/67))
 
 ## [2.1.0] - 2023-12-01
 
