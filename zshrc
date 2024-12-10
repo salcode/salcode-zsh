@@ -56,6 +56,17 @@ alias gwc="git switch --create"
 # More details at https://salferrarello.com/improve-git-log/
 alias gl="git lg"
 
+# Set yarn version
+# e.g. syarn 4
+function syarn() {
+	case $1 in
+		1) VER='1.22.22' ;;
+		4) VER='4.0.2' ;;
+		*) echo 'Invalid choice: only 1 and 4 are supported'; return 1 ;;
+	esac
+	(cd ~ && yarn set version "$VER" && cd -)
+}
+
 # Read node version from one of the following sources:
 # - .node-version file
 # - .nvmrc file
