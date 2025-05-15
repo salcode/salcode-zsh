@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Add `openff` to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70))
+
 ## [2.2.0] - 2024-12-09
 
 - Add `gw` and `gwc` aliases for `git switch` and `git switch --create` respectively ([#56](https://github.com/salcode/salcode-zsh/issues/56))
