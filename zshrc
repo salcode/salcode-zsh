@@ -21,6 +21,8 @@ alias ..-="cd ../;cd -"
 alias sayresult="say 'Task complete' || say 'Failure'"
 alias vi="nvim"
 
+alias openff="open -a Firefox"
+
 # Open ripgrep results in Vim
 function vrg() {
 	vi -q <(rg $@ --vimgrep);
