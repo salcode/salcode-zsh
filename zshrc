@@ -67,6 +67,7 @@ function gbf() {
 		# If the fzf selected branch starts with "*", remove the "*".
 		sed "s/^[* ]*//"
 }
+alias gwf='git switch $(gbf)'
 
 # Read node version from one of the following sources:
 # - .node-version file
