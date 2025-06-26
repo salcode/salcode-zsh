@@ -58,6 +58,16 @@ alias gwc="git switch --create"
 # More details at https://salferrarello.com/improve-git-log/
 alias gl="git lg"
 
+# Pass git branche(es) to fzf for selecting with preview
+function gbf() {
+	git branch |
+		# If the fzf highlighted branch starts with "*", remove the "*".
+		# Preview the highlighted branch with git log --oneline --graph
+		fzf --preview 'git log --oneline --graph $(echo {} | sed "s/^[* ]*//")' |
+		# If the fzf selected branch starts with "*", remove the "*".
+		sed "s/^[* ]*//"
+}
+
 # Read node version from one of the following sources:
 # - .node-version file
 # - .nvmrc file

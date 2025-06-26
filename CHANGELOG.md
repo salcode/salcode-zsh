@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add `openff` to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70))
+- Add `gbf` to pass `git branch` output to `fzf` for selecting ([#75](https://github.com/salcode/salcode-zsh/issues/75))
 
 ## [2.2.0] - 2024-12-09
 
