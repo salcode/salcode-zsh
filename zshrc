@@ -18,6 +18,7 @@ alias ..5="cd ../../../../.."
 alias ..6="cd ../../../../../.."
 alias ..-="cd ../;cd -"
 
+alias cpbangbang="fc -ln -1 | pbcopy"
 alias sayresult="say 'Task complete' || say 'Failure'"
 alias vi="nvim"
 

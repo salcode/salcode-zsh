@@ -5,6 +5,7 @@
 - Add `openff` to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70))
 - Add `gbf` to pass `git branch` output to `fzf` for selecting ([#75](https://github.com/salcode/salcode-zsh/issues/75))
 - Add `gwf` to switch to the Git branch selected with `gbf` ([#73](https://github.com/salcode/salcode-zsh/issues/73))
+- Add `cpbangbang` alias to copy the last command to the clipboard ([#72](https://github.com/salcode/salcode-zsh/issues/72))
 
 ## [2.2.0] - 2024-12-09
 
