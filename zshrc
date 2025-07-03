@@ -160,9 +160,15 @@ function nvmpe() {
 #
 # @param string that appears in package name(s)
 function jqcfind() {
-	jq --raw-output --arg x "$1" \
-	'.require | to_entries[] | select(.key | contains($x)) | .key' \
-	composer.json | tee >(pbcopy)
+	output=$(jq --raw-output --arg x "$1" \
+		'.require | to_entries[] | select(.key | contains($x)) | "\(.key):\(.value)"' \
+		composer.json)
+	if  [[ $2 == '--name' ]]
+	then
+		echo "$output" | cut -d : -f 1
+	else
+		echo $output
+	fi
 }
 
 # jq git composer diff
