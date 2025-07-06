@@ -179,6 +179,8 @@ function jqgcdiff() {
 
 # Remove Newline at End of File.
 alias chompeof="perl -pi -e 'chomp if eof'"
+# Ensure Newline at End of Content from pbpaste.
+alias pbpasten="pbpaste | perl -pe 'END { print \"\n\" unless /\n\z/ }'"
 
 # Aliases to copy pwd and cd to clipboard
 alias pwdcp="pwd | pbcopy"

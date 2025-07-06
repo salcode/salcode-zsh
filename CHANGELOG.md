@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add alias `pbpasten` to paste the contents of the clipboard and ensure there is a line break at the end ([#58](https://github.com/salcode/salcode-zsh/issues/58))
 - Add `openff` to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70))
 - Add `gbf` to pass `git branch` output to `fzf` for selecting ([#75](https://github.com/salcode/salcode-zsh/issues/75))
 - Add `gwf` to switch to the Git branch selected with `gbf` ([#73](https://github.com/salcode/salcode-zsh/issues/73))
