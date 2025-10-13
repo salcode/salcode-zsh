@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Open in Firefox browser.
+open -a 'Firefox' "$@"
