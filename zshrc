@@ -3,6 +3,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Add local scripts folder to PATH
+local scripts_folder="$(readlink -f $(dirname $0))/scripts"
+path+=("${scripts_folder}")
+export PATH
+
 # Make tty value available for GPG agent.
 export GPG_TTY=$(tty)
 
@@ -21,8 +26,6 @@ alias ..-="cd ../;cd -"
 alias cpbangbang="fc -ln -1 | pbcopy"
 alias sayresult="say 'Task complete' || say 'Failure'"
 alias vi="nvim"
-
-alias openff="open -a Firefox"
 
 # Open ripgrep results in Vim
 function vrg() {

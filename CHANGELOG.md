@@ -2,11 +2,13 @@
 
 ## Unreleased
 
-- Add alias `pbpasten` to paste the contents of the clipboard and ensure there is a line break at the end ([#58](https://github.com/salcode/salcode-zsh/issues/58))
-- Add `openff` to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70))
+- Add local `./scripts/` directory and add to `$PATH` ([#85](https://github.com/salcode/salcode-zsh/issues/85))
+- Add `openff` bash script to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70),[#84](https://github.com/salcode/salcode-zsh/issues/84))
 - Add `gbf` to pass `git branch` output to `fzf` for selecting ([#75](https://github.com/salcode/salcode-zsh/issues/75))
 - Add `gwf` to switch to the Git branch selected with `gbf` ([#73](https://github.com/salcode/salcode-zsh/issues/73))
 - Add `cpbangbang` alias to copy the last command to the clipboard ([#72](https://github.com/salcode/salcode-zsh/issues/72))
+- Add `sshf` script to select SSH host with `fzf` and connect ([#81](https://github.com/salcode/salcode-zsh/issues/81))
+- Add alias `pbpasten` to paste the contents of the clipboard and ensure there is a line break at the end ([#58](https://github.com/salcode/salcode-zsh/issues/58))
 
 ## [2.2.0] - 2024-12-09
 
