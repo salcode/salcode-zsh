@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [2.3.0] - 2026-05-02
 
 - Add local `./scripts/` directory and add to `$PATH` ([#85](https://github.com/salcode/salcode-zsh/issues/85))
 - Add `openff` bash script to open in Firefox ([#70](https://github.com/salcode/salcode-zsh/issues/70),[#84](https://github.com/salcode/salcode-zsh/issues/84))
