@@ -190,6 +190,7 @@ function cdp() {
 }
 
 # Add alias to source zsh configuration.
+alias zsource="source ~/.zshrc"
 alias sourcez="source ~/.zshrc"
 
 alias pu="./vendor/bin/phpunit"

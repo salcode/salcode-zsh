@@ -9,6 +9,7 @@
 - Add `cpbangbang` alias to copy the last command to the clipboard ([#72](https://github.com/salcode/salcode-zsh/issues/72))
 - Add `sshf` script to select SSH host with `fzf` and connect ([#81](https://github.com/salcode/salcode-zsh/issues/81))
 - Add `tcd` script to run the same `cd` command in multiple tmux panes ([#89](https://github.com/salcode/salcode-zsh/issues/89))
+- Add `zsource` alias to duplicate functionality of `sourcez` (`source ~/.zshrc`) with shorter tab completion ([#90](https://github.com/salcode/salcode-zsh/issues/90))
 
 ## [2.2.0] - 2024-12-09
 
