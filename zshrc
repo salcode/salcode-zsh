@@ -186,7 +186,7 @@ alias chompeof="perl -pi -e 'chomp if eof'"
 # Aliases to copy pwd and cd to clipboard
 alias pwdcp="pwd | pbcopy"
 function cdp() {
-	cd $(pbpaste)
+	cd "$(pbpaste)"
 }
 
 # Add alias to source zsh configuration.

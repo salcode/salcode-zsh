@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+
+- Wrap `cdp` (change to directory in clipboard) in quotes to handle spaces in directory names ([#95](https://github.com/salcode/salcode-zsh/issues/95))
+
 ## [2.3.0] - 2026-05-02
 
 - Add local `./scripts/` directory and add to `$PATH` ([#85](https://github.com/salcode/salcode-zsh/issues/85))
