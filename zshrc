@@ -195,13 +195,14 @@ alias sourcez="source ~/.zshrc"
 
 alias pu="./vendor/bin/phpunit"
 
-alias jwt="jq -R 'split(\".\") | .[0], .[1] | @base64d | fromjson | \
-    (.. | select(has(\"exp\") or has(\"iat\")?)) |= \
-    with_entries(\
-    if .key == \"exp\" then .value=(.value|todateiso8601)\
-    elif .key == \"iat\" then .value=(.value|todateiso8601)\
-    else . end\
-)'"
+alias jwt="jq -RS '
+  def decode:
+    . | @base64d | fromjson |
+    if (.exp) then . + {exp_date: .exp | todateiso8601} end |
+    if (.iat) then . + {iat_date: .iat | todateiso8601} end
+  ;
+  split(\".\") | (.[0] | decode), (.[1] | decode)
+'"
 
 # Autoload zsh add-zsh-hook and vcs_info functions (-U autoload w/o substition, -z use zsh style)
 autoload -Uz add-zsh-hook vcs_info
