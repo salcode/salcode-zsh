@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Wrap `cdp` (change to directory in clipboard) in quotes to handle spaces in directory names ([#95](https://github.com/salcode/salcode-zsh/issues/95))
+- Add `jwt` alias to decode JWT tokens ([#97](https://github.com/salcode/salcode-zsh/issues/97))
 
 ## [2.3.0] - 2026-05-02
 
